@@ -1,7 +1,6 @@
 import { buildSchema } from '@sprucelabs/schema'
 import { fake } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert, errorAssert, generateId } from '@sprucelabs/test-utils'
-import { RegisteredChatbot } from '../../chatbot.types'
 import ChatbotImpl, { ChatbotOptions } from '../../ChatbotImpl'
 import AbstractChatbotTest from '../support/AbstractChatbotTest'
 
