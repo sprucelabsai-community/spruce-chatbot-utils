@@ -1,21 +1,12 @@
 import { fake } from '@sprucelabs/spruce-test-fixtures'
-import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
-import { SkillOptions } from '@sprucelabs/sprucebot-llm'
 import { test, assert, errorAssert, generateId } from '@sprucelabs/test-utils'
-import ChatBotFactory from '../../ChatBotFactory'
-import ChatbotImpl from '../../ChatbotImpl'
+import { Chatbot } from '../../chatbot.types'
+import ChatBotFactory, { ChatbotFromFactoryOptions } from '../../ChatBotFactory'
+import ChatbotImpl, { ChatbotOptions } from '../../ChatbotImpl'
+import AbstractChatbotTest from '../support/AbstractChatbotTest'
 
 @fake.login()
-export default class ChatBotFactoryTest extends AbstractSpruceFixtureTest {
-	private static bots: ChatBotFactory
-
-	protected static async beforeEach(): Promise<void> {
-		await super.beforeEach()
-		this.bots = await ChatBotFactory.Factory({
-			client: this.fakedClient,
-		})
-	}
-
+export default class ChatBotFactoryTest extends AbstractChatbotTest {
 	@test()
 	protected static async throwsWithMissing() {
 		//@ts-ignore
@@ -43,10 +34,32 @@ export default class ChatBotFactoryTest extends AbstractSpruceFixtureTest {
 
 	@test()
 	protected static async canCreateBotWithRequired() {
-		const bot = await this.bots.Chatbot({
+		const bot = await this.Chatbot()
+		assert.isInstanceOf(bot, ChatbotImpl as any)
+	}
+
+	@test()
+	protected static async makeSureAllOptionsArePassedThrough() {
+		const options: ChatbotFromFactoryOptions = {
+			title: generateId(),
 			weAreDoneWhen: generateId(),
 			yourJobIfYouChooseToAcceptItIs: generateId(),
-		})
-		assert.isInstanceOf(bot, ChatbotImpl)
+		}
+		ChatBotFactory.ChatbotClass = SpyBot
+		const bot = (await this.Chatbot(options)) as SpyBot
+		assert.isInstanceOf(bot, SpyBot)
+		assert.doesInclude(bot.constructorOptions, options)
+	}
+}
+
+class SpyBot implements Chatbot {
+	public constructorOptions: ChatbotOptions
+
+	public constructor(options: ChatbotOptions) {
+		this.constructorOptions = options
+	}
+
+	public static async Chatbot(options: ChatbotOptions) {
+		return new this(options)
 	}
 }

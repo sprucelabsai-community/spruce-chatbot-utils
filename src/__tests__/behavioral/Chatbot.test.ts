@@ -1,10 +1,25 @@
+import { buildSchema } from '@sprucelabs/schema'
 import { fake } from '@sprucelabs/spruce-test-fixtures'
-import { AbstractSpruceFixtureTest } from '@sprucelabs/spruce-test-fixtures'
 import { test, assert, errorAssert, generateId } from '@sprucelabs/test-utils'
-import ChatbotImpl from '../../ChatbotImpl'
+import { RegisteredChatbot } from '../../chatbot.types'
+import ChatbotImpl, { ChatbotOptions } from '../../ChatbotImpl'
+import AbstractChatbotTest from '../support/AbstractChatbotTest'
 
 @fake.login()
-export default class ChatbotTest extends AbstractSpruceFixtureTest {
+export default class ChatbotTest extends AbstractChatbotTest {
+	private static randomOptions: ChatbotOptions
+
+	protected static async beforeEach() {
+		await super.beforeEach()
+		this.randomOptions = {
+			client: this.fakedClient,
+			yourJobIfYouChooseToAcceptItIs: generateId(),
+			title: generateId(),
+			weAreDoneWhen: generateId(),
+			pleaseKeepInMindThat: [generateId(), generateId()],
+		}
+	}
+
 	@test()
 	protected static async botThrowsWithoutRequired() {
 		//@ts-ignore
@@ -22,23 +37,47 @@ export default class ChatbotTest extends AbstractSpruceFixtureTest {
 	@test()
 	protected static async canCreateWhenHasRequired() {
 		const bot = await this.Chatbot()
-		assert.isInstanceOf(bot, ChatbotImpl)
+		assert.isInstanceOf(bot, ChatbotImpl as any)
 	}
 
 	@test()
 	protected static async eachBotListensForRegisterChatbotsEvent() {
-		const bot = await this.Chatbot()
-		const [{ bots }] = await this.fakedClient.emitAndFlattenResponses(
-			'register-chat-bots::v2020_12_25'
-		)
+		await this.Chatbot()
+		await this.assertTotalBotsRegistered(1)
+		await this.Chatbot()
+		await this.assertTotalBotsRegistered(2)
 	}
 
-	private static async Chatbot() {
+	@test()
+	protected static async botRegistersWithCorrectData() {
+		const options: ChatbotOptions = {
+			...this.randomOptions,
+			stateSchema: buildSchema({
+				id: 'test',
+				fields: {
+					firstName: {
+						type: 'text',
+						isRequired: true,
+					},
+				},
+			}),
+		}
+
+		await this.Chatbot(options)
+
+		const [bot] = await this.getRegisteredBots()
+		assert.doesInclude(options, bot)
+	}
+
+	private static async assertTotalBotsRegistered(expected: number) {
+		const bots = await this.getRegisteredBots()
+		assert.isLength(bots, expected)
+	}
+
+	protected static async Chatbot(options?: Partial<ChatbotOptions>) {
 		return await ChatbotImpl.Chatbot({
-			client: this.fakedClient,
-			yourJobIfYouChooseToAcceptItIs: generateId(),
-			title: generateId(),
-			weAreDoneWhen: generateId(),
+			...this.randomOptions,
+			...options,
 		})
 	}
 }
