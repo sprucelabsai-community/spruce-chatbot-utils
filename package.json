@@ -49,9 +49,9 @@
     "@sprucelabs/spruce-core-schemas": "^38.1.28",
     "@sprucelabs/spruce-event-plugin": "^59.0.35",
     "@sprucelabs/spruce-event-utils": "^37.0.34",
-    "@sprucelabs/spruce-permission-plugin": "^29.0.74",
+    "@sprucelabs/spruce-permission-plugin": "^29.0.75",
     "@sprucelabs/spruce-skill-utils": "^29.0.19",
-    "@sprucelabs/sprucebot-llm": "^3.0.39"
+    "@sprucelabs/sprucebot-llm": "^3.0.40"
   },
   "devDependencies": {
     "@sprucelabs/esm-postbuild": "^5.0.16",
