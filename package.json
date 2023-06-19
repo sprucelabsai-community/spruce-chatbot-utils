@@ -49,7 +49,7 @@
     "@sprucelabs/spruce-core-schemas": "^38.1.51",
     "@sprucelabs/spruce-event-plugin": "^59.0.88",
     "@sprucelabs/spruce-event-utils": "^37.0.66",
-    "@sprucelabs/spruce-permission-plugin": "^29.0.143",
+    "@sprucelabs/spruce-permission-plugin": "^29.0.144",
     "@sprucelabs/spruce-skill-utils": "^29.1.19",
     "@sprucelabs/sprucebot-llm": "^3.0.65"
   },
