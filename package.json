@@ -44,13 +44,13 @@
   "dependencies": {
     "@sprucelabs/mercury-client": "^41.0.74",
     "@sprucelabs/mercury-core-events": "^22.0.71",
-    "@sprucelabs/mercury-types": "^46.0.58",
+    "@sprucelabs/mercury-types": "^46.0.59",
     "@sprucelabs/schema": "^29.0.50",
-    "@sprucelabs/spruce-core-schemas": "^39.0.66",
+    "@sprucelabs/spruce-core-schemas": "^39.0.67",
     "@sprucelabs/spruce-event-plugin": "^60.0.100",
-    "@sprucelabs/spruce-event-utils": "^38.0.70",
-    "@sprucelabs/spruce-permission-plugin": "^30.0.138",
-    "@sprucelabs/spruce-skill-utils": "^30.0.24",
+    "@sprucelabs/spruce-event-utils": "^38.0.71",
+    "@sprucelabs/spruce-permission-plugin": "^30.0.139",
+    "@sprucelabs/spruce-skill-utils": "^30.0.25",
     "@sprucelabs/sprucebot-llm": "^4.0.43"
   },
   "devDependencies": {
