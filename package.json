@@ -42,14 +42,14 @@
     "watch.tsc": "tsc -w"
   },
   "dependencies": {
-    "@sprucelabs/mercury-client": "^41.0.329",
-    "@sprucelabs/mercury-core-events": "^22.2.32",
+    "@sprucelabs/mercury-client": "^41.0.330",
+    "@sprucelabs/mercury-core-events": "^22.2.33",
     "@sprucelabs/mercury-types": "^46.0.251",
     "@sprucelabs/schema": "^29.4.16",
     "@sprucelabs/spruce-core-schemas": "^39.0.249",
     "@sprucelabs/spruce-event-plugin": "^60.1.278",
     "@sprucelabs/spruce-event-utils": "^38.0.294",
-    "@sprucelabs/spruce-permission-plugin": "^30.0.598",
+    "@sprucelabs/spruce-permission-plugin": "^30.0.599",
     "@sprucelabs/spruce-skill-utils": "^30.3.7",
     "@sprucelabs/sprucebot-llm": "^4.0.43"
   },
