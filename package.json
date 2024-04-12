@@ -42,7 +42,7 @@
     "watch.tsc": "tsc -w"
   },
   "dependencies": {
-    "@sprucelabs/mercury-client": "^41.0.385",
+    "@sprucelabs/mercury-client": "^41.0.386",
     "@sprucelabs/mercury-core-events": "^22.2.88",
     "@sprucelabs/mercury-types": "^46.0.300",
     "@sprucelabs/schema": "^29.4.60",
