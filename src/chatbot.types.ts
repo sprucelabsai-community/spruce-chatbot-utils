@@ -4,4 +4,4 @@ export interface Chatbot {}
 
 export type RegisteredChatbot = SpruceSchemas.Mercury.v2020_12_25.Chatbot
 export type RegisteredCallbacks =
-	SpruceSchemas.Mercury.v2020_12_25.ChatbotCallbacks
+    SpruceSchemas.Mercury.v2020_12_25.ChatbotCallbacks
