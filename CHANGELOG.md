@@ -1,3 +1,10 @@
+# [1.0.0](https://github.com/sprucelabsai-community/spruce-chatbot-utils/compare/v0.0.822...v1.0.0) (2024-04-17)
+
+
+### Breaking Changes
+
+* upgrade ([435cecd](https://github.com/sprucelabsai-community/spruce-chatbot-utils/commit/435cecd))
+
 ## [0.0.822](https://github.com/sprucelabsai-community/spruce-chatbot-utils/compare/v0.0.821...v0.0.822) (2024-04-05)
 
 ## [0.0.821](https://github.com/sprucelabsai-community/spruce-chatbot-utils/compare/v0.0.820...v0.0.821) (2024-04-05)
