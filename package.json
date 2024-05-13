@@ -50,7 +50,7 @@
     "@sprucelabs/spruce-event-utils": "^40.0.43",
     "@sprucelabs/spruce-permission-plugin": "^31.0.71",
     "@sprucelabs/spruce-skill-utils": "^31.0.45",
-    "@sprucelabs/sprucebot-llm": "^5.0.52"
+    "@sprucelabs/sprucebot-llm": "^5.0.53"
   },
   "devDependencies": {
     "@sprucelabs/esm-postbuild": "^6.0.20",
