@@ -1,3 +1,5 @@
+## [1.0.636](https://github.com/sprucelabsai-community/spruce-chatbot-utils/compare/v1.0.635...v1.0.636) (2024-10-20)
+
 ## [1.0.635](https://github.com/sprucelabsai-community/spruce-chatbot-utils/compare/v1.0.634...v1.0.635) (2024-10-20)
 
 ## [1.0.634](https://github.com/sprucelabsai-community/spruce-chatbot-utils/compare/v1.0.633...v1.0.634) (2024-10-20)
